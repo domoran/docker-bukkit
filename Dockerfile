@@ -26,7 +26,7 @@ RUN apk update
 RUN apk --no-cache add wget git bash
 RUN wget -O /minecraft/BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 CMD git config --global --unset core.autocrlf
-RUN java -jar BuildTools.jar --rev $BUKKIT_VERSION  2>&1 /dev/null
+RUN java -Xmx1024M -jar BuildTools.jar --rev $BUKKIT_VERSION  2>&1 /dev/null
 
 FROM openjdk:8-alpine
 # frolvlad/alpine-python3
